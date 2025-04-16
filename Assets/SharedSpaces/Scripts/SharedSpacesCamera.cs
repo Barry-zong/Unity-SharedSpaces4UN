@@ -16,46 +16,46 @@ public class SharedSpacesCamera : MonoBehaviour
 
     public void Init(CharacterController character_, SharedSpacesInputs inputs_)
     {
-        character = character_;
-        heightOffset = character.height * 1.25f;
+       // character = character_;
+       // heightOffset = character.height * 1.25f;
         inputs = inputs_;
 
-        Refocus();
+       // Refocus();
     }
 
     public void Refocus()
     {
-        headPos.x = character.transform.position.x;
-        headPos.y = heightOffset;
-        headPos.z = character.transform.position.z;
+       // headPos.x = character.transform.position.x;
+       // headPos.y = heightOffset;
+       // headPos.z = character.transform.position.z;
 
-        transform.SetPositionAndRotation(headPos - 2.5f * transform.transform.forward, Quaternion.identity);
-        transform.transform.LookAt(headPos);
+        //transform.SetPositionAndRotation(headPos - 2.5f * transform.transform.forward, Quaternion.identity);
+        //transform.transform.LookAt(headPos);
     }
 
     void Start()
     {
         DontDestroyOnLoad(this);
-        cam = Camera.main;
+        //cam = Camera.main;
     }
 
     void Update()
     {
         if (!inputs) return;
 
-        justStoppedMoving = lastMoveDir.magnitude > 0.0f && inputs.move.magnitude == 0.0f; 
-        lastMoveDir = inputs.move;
+       // justStoppedMoving = lastMoveDir.magnitude > 0.0f && inputs.move.magnitude == 0.0f; 
+       // lastMoveDir = inputs.move;
     }
 
     void LateUpdate()
     {
         if (!inputs) return;
 
-        if (justStoppedMoving)
-        {
-            Refocus();
-        }
+       // if (justStoppedMoving)
+       // {
+       //     Refocus();
+       // }
 
-        transform.RotateAround(headPos, Vector3.up, -1.0f * inputs.orbit.x);
+       // transform.RotateAround(headPos, Vector3.up, -1.0f * inputs.orbit.x);
     }
 }

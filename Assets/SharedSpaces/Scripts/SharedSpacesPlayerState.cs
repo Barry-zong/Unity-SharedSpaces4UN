@@ -87,7 +87,7 @@ public class SharedSpacesPlayerState : NetworkBehaviour
 
         if (!LocalPlayerState) return;
 
-        LocalPlayerState.playerCamera.Refocus();
+       // LocalPlayerState.playerCamera.Refocus();
         LocalPlayerState.OnChange += UpdateData;
         
         UpdateData();
@@ -124,10 +124,10 @@ public class SharedSpacesPlayerState : NetworkBehaviour
 
         if (LocalPlayerState)
         {
-            LocalPlayerState.playerCamera.Init(
-                characterController,
-                GetComponent<SharedSpacesInputs>()
-            );
+           // LocalPlayerState.playerCamera.Init(
+            //    characterController,
+            //    GetComponent<SharedSpacesInputs>()
+            //);
 
             SetStateServerRpc(LocalPlayerState.color, LocalPlayerState.username);
             SetMasterServerRpc(IsHost);
